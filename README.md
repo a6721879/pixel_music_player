@@ -4,6 +4,16 @@
 
 ---
 
+## 📸 视觉预览 (Visual Preview)
+
+以下为使用 **Roborazzi + JVM Native Graphics** 真实捕获的应用核心交互与像素组件截图：
+
+| 🐱 像素律动宠物 (`CutePixelMascot`) | 🎵 像素拟物卡片 (`SongRowItem`) | 👾 像素提示框 (`EmptyState`) |
+| :---: | :---: | :---: |
+| <img src="app/src/test/screenshots/mascot_animated.png" width="220" alt="Animated Mascot"/> | <img src="app/src/test/screenshots/song_row_item.png" width="320" alt="Retro Song Row Card"/> | <img src="app/src/test/screenshots/empty_state.png" width="320" alt="Retro Empty State Dialog"/> |
+
+---
+
 ## 🌟 项目简介
 
 **像素音乐盒** 是一款将经典电玩掌机视觉与现代流媒体音乐无缝融合的 Android 客户端。本项目致敬并吸取了经典音乐聚合搜索平台 **铜钟音乐 (https://tonzhon.whamon.com/)** 的核心思想——即**“打破壁垒，极简畅听”**。在此基础之上，我们创新性地为移动端开发了整套**复古像素美学界面**，并搭载了本地数据持久化机制、动态 Canvas 像素宠物交互以及纯净免登录的搜索与缓存系统。
