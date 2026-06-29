@@ -1,6 +1,6 @@
 {
   "name": "像素音乐盒",
-  "description": "简约、清新、青春的免登录本地缓存音乐播放器",
+  "description": "一款基于铜钟音乐设计的极简复古像素风音乐播放器。支持离线收藏、免登录畅听、实时搜索及动态像素宠物互动。",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
