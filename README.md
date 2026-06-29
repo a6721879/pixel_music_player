@@ -10,7 +10,7 @@
 
 | 🐱 像素律动宠物 (`CutePixelMascot`) | 🎵 像素拟物卡片 (`SongRowItem`) | 👾 像素提示框 (`EmptyState`) |
 | :---: | :---: | :---: |
-| <img src="app/src/test/screenshots/mascot_animated.png" width="220" alt="Animated Mascot"/> | <img src="app/src/test/screenshots/song_row_item.png" width="320" alt="Retro Song Row Card"/> | <img src="app/src/test/screenshots/empty_state.png" width="320" alt="Retro Empty State Dialog"/> |
+| <img src="assets/mascot_animated.png" width="220" alt="Animated Mascot"/> | <img src="assets/song_row_item.png" width="320" alt="Retro Song Row Card"/> | <img src="assets/empty_state.png" width="320" alt="Retro Empty State Dialog"/> |
 
 ---
 

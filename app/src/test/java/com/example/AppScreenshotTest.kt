@@ -44,7 +44,7 @@ class AppScreenshotTest {
             }
         }
         composeTestRule.waitForIdle()
-        composeTestRule.onRoot().captureRoboImage(filePath = "src/test/screenshots/mascot_animated.png")
+        composeTestRule.onRoot().captureRoboImage(filePath = "../assets/mascot_animated.png")
     }
 
     @Test
@@ -77,7 +77,7 @@ class AppScreenshotTest {
             }
         }
         composeTestRule.waitForIdle()
-        composeTestRule.onRoot().captureRoboImage(filePath = "src/test/screenshots/song_row_item.png")
+        composeTestRule.onRoot().captureRoboImage(filePath = "../assets/song_row_item.png")
     }
 
     @Test
@@ -99,6 +99,6 @@ class AppScreenshotTest {
             }
         }
         composeTestRule.waitForIdle()
-        composeTestRule.onRoot().captureRoboImage(filePath = "src/test/screenshots/empty_state.png")
+        composeTestRule.onRoot().captureRoboImage(filePath = "../assets/empty_state.png")
     }
 }
