@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- HEADPHONE BAND OUTER BLACK OUTLINE -->
+    <path
+        android:pathData="M 32,44 A 22,22 0 0,1 76,44"
+        android:strokeWidth="5"
+        android:strokeColor="#2D3436"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000" />
+
+    <!-- HEADPHONE BAND INNER RETRO BLUE -->
+    <path
+        android:pathData="M 32,44 A 22,22 0 0,1 76,44"
+        android:strokeWidth="2.5"
+        android:strokeColor="#2E86DE"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000" />
+
+    <!-- MAIN CONSOLE BODY BLACK OUTLINE -->
+    <!-- Centered strictly inside the 66dp safe zone (21 to 87) -->
+    <path
+        android:pathData="M 38,35 h 32 a 4,4 0 0,1 4,4 v 44 a 4,4 0 0,1 -4,4 h -32 a 4,4 0 0,1 -4,-4 v -44 a 4,4 0 0,1 4,-4 z"
+        android:strokeWidth="3.5"
+        android:strokeColor="#2D3436"
+        android:fillColor="#00000000" />
+
+    <!-- MAIN CONSOLE BODY FILL (Vibrant Retro Red) -->
+    <path
+        android:pathData="M 38,35 h 32 a 4,4 0 0,1 4,4 v 44 a 4,4 0 0,1 -4,4 h -32 a 4,4 0 0,1 -4,-4 v -44 a 4,4 0 0,1 4,-4 z"
+        android:fillColor="#FF4757" />
+
+    <!-- SCREEN BLACK OUTLINE -->
+    <path
+        android:pathData="M 43,40 h 22 a 2,2 0 0,1 2,2 v 16 a 2,2 0 0,1 -2,2 h -22 a 2,2 0 0,1 -2,-2 v -16 a 2,2 0 0,1 2,-2 z"
+        android:strokeWidth="2"
+        android:strokeColor="#2D3436"
+        android:fillColor="#00000000" />
+
+    <!-- SCREEN FILL (Gameboy Retro Green) -->
+    <path
+        android:pathData="M 43,40 h 22 a 2,2 0 0,1 2,2 v 16 a 2,2 0 0,1 -2,2 h -22 a 2,2 0 0,1 -2,-2 v -16 a 2,2 0 0,1 2,-2 z"
+        android:fillColor="#10AC84" />
+
+    <!-- CUTE EYES -->
+    <!-- Left Eye -->
+    <path
+        android:pathData="M 47,46 h 2.5 v 4 h -2.5 z"
+        android:fillColor="#2D3436" />
+    <!-- Right Eye -->
+    <path
+        android:pathData="M 58.5,46 h 2.5 v 4 h -2.5 z"
+        android:fillColor="#2D3436" />
+
+    <!-- CUTE SMILE -->
+    <path
+        android:pathData="M 52,52 Q 54,54 56,52"
+        android:strokeWidth="1.5"
+        android:strokeColor="#2D3436"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000" />
+
+    <!-- PINK BLUSHES -->
+    <!-- Left Blush -->
+    <path
+        android:pathData="M 45,50 h 1.5 v 1.5 h -1.5 z"
+        android:fillColor="#FF7675" />
+    <!-- Right Blush -->
+    <path
+        android:pathData="M 61.5,50 h 1.5 v 1.5 h -1.5 z"
+        android:fillColor="#FF7675" />
+
+    <!-- D-PAD CONTROLLER (Black Outline & Fill) -->
+    <!-- Vertical Bar -->
+    <path
+        android:pathData="M 45.5,65 h 3 v 9 h -3 z"
+        android:fillColor="#2D3436" />
+    <!-- Horizontal Bar -->
+    <path
+        android:pathData="M 42.5,68 h 9 v 3 h -9 z"
+        android:fillColor="#2D3436" />
+
+    <!-- ACTION BUTTON B (Retro Blue with black outline) -->
+    <path
+        android:pathData="M 58,72 A 2,2 0 1,1 58,71.999"
+        android:strokeWidth="1.5"
+        android:strokeColor="#2D3436"
+        android:fillColor="#2E86DE" />
+
+    <!-- ACTION BUTTON A (Retro Yellow/Cream with black outline) -->
+    <path
+        android:pathData="M 64,67 A 2,2 0 1,1 64,66.999"
+        android:strokeWidth="1.5"
+        android:strokeColor="#2D3436"
+        android:fillColor="#FAF6EE" />
+
+    <!-- LEFT HEADPHONE EAR CUP OUTLINE -->
+    <path
+        android:pathData="M 29,42 h 6 a 2,2 0 0,1 2,2 v 12 a 2,2 0 0,1 -2,2 h -6 a 2,2 0 0,1 -2,-2 v -12 a 2,2 0 0,1 2,-2 z"
+        android:strokeWidth="2.5"
+        android:strokeColor="#2D3436"
+        android:fillColor="#00000000" />
+
+    <!-- LEFT HEADPHONE EAR CUP FILL (Retro Blue) -->
+    <path
+        android:pathData="M 29,42 h 6 a 2,2 0 0,1 2,2 v 12 a 2,2 0 0,1 -2,2 h -6 a 2,2 0 0,1 -2,-2 v -12 a 2,2 0 0,1 2,-2 z"
+        android:fillColor="#2E86DE" />
+
+    <!-- RIGHT HEADPHONE EAR CUP OUTLINE -->
+    <path
+        android:pathData="M 73,42 h 6 a 2,2 0 0,1 2,2 v 12 a 2,2 0 0,1 -2,2 h -6 a 2,2 0 0,1 -2,-2 v -12 a 2,2 0 0,1 2,-2 z"
+        android:strokeWidth="2.5"
+        android:strokeColor="#2D3436"
+        android:fillColor="#00000000" />
+
+    <!-- RIGHT HEADPHONE EAR CUP FILL (Retro Blue) -->
+    <path
+        android:pathData="M 73,42 h 6 a 2,2 0 0,1 2,2 v 12 a 2,2 0 0,1 -2,2 h -6 a 2,2 0 0,1 -2,-2 v -12 a 2,2 0 0,1 2,-2 z"
+        android:fillColor="#2E86DE" />
+
+    <!-- FLOATING RETRO PIXEL MUSIC NOTE LEFT (Blue) -->
+    <path
+        android:pathData="M 21,30 h 3 v 3 h -3 z"
+        android:fillColor="#2E86DE" />
+    <path
+        android:pathData="M 23,24 h 1.5 v 7 h -1.5 z"
+        android:fillColor="#2E86DE" />
+    <path
+        android:pathData="M 24.5,24 h 3.5 v 2 h -3.5 z"
+        android:fillColor="#2E86DE" />
+
+    <!-- FLOATING RETRO PIXEL MUSIC NOTE RIGHT (Red) -->
+    <!-- Note Head 1 -->
+    <path
+        android:pathData="M 80,28 h 3 v 3 h -3 z"
+        android:fillColor="#FF4757" />
+    <!-- Note Head 2 -->
+    <path
+        android:pathData="M 87,25 h 3 v 3 h -3 z"
+        android:fillColor="#FF4757" />
+    <!-- Stem 1 -->
+    <path
+        android:pathData="M 82,22 h 1.5 v 7 h -1.5 z"
+        android:fillColor="#FF4757" />
+    <!-- Stem 2 -->
+    <path
+        android:pathData="M 89,19 h 1.5 v 7 h -1.5 z"
+        android:fillColor="#FF4757" />
+    <!-- Beam -->
+    <path
+        android:pathData="M 82,21 L 90.5,18"
+        android:strokeWidth="2"
+        android:strokeColor="#FF4757"
+        android:fillColor="#00000000" />
+
+</vector>

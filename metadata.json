@@ -1,0 +1,6 @@
+{
+  "name": "像素音乐盒",
+  "description": "简约、清新、青春的免登录本地缓存音乐播放器",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
