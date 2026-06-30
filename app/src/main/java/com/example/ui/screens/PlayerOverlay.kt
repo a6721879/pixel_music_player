@@ -21,7 +21,10 @@ import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.window.DialogWindowProvider
+import androidx.core.view.WindowCompat
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -83,6 +86,18 @@ fun PlayerOverlay(
                     .fillMaxHeight(0.95f)
                     .testTag("full_player_sheet")
             ) {
+                val view = LocalView.current
+                DisposableEffect(view) {
+                    val windowProvider = view.parent as? DialogWindowProvider
+                    val window = windowProvider?.window
+                    if (window != null) {
+                        window.statusBarColor = android.graphics.Color.TRANSPARENT
+                        window.navigationBarColor = android.graphics.Color.TRANSPARENT
+                        WindowCompat.setDecorFitsSystemWindows(window, false)
+                    }
+                    onDispose {}
+                }
+
                 FullPlayerSheetContent(
                     song = activeSong,
                     isPlaying = isPlaying,
@@ -294,8 +309,8 @@ fun FullPlayerSheetContent(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(horizontal = 24.dp)
-            .padding(bottom = 32.dp),
+            .navigationBarsPadding()
+            .padding(horizontal = 24.dp, vertical = 20.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceBetween
     ) {
@@ -321,33 +336,15 @@ fun FullPlayerSheetContent(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                // Retro Square Favorite Button
-                IconButton(
-                    onClick = onFavoriteToggle,
-                    modifier = Modifier
-                        .size(44.dp)
-                        .border(2.dp, MaterialTheme.colorScheme.onBackground, RoundedCornerShape(4.dp))
-                        .background(MaterialTheme.colorScheme.surface, RoundedCornerShape(4.dp))
-                        .testTag("full_player_favorite")
-                ) {
-                    Icon(
-                        imageVector = if (isFavorite) Icons.Filled.Favorite else Icons.Outlined.FavoriteBorder,
-                        contentDescription = "Favorite",
-                        tint = if (isFavorite) Color(0xFFFF4D4D) else MaterialTheme.colorScheme.onSurface,
-                        modifier = Modifier.size(24.dp)
-                    )
-                }
-
                 Column(
                     modifier = Modifier.weight(1f),
-                    horizontalAlignment = Alignment.CenterHorizontally
+                    horizontalAlignment = Alignment.Start
                 ) {
                     Text(
                         text = song.name,
-                        style = MaterialTheme.typography.headlineSmall.copy(
+                        style = MaterialTheme.typography.titleLarge.copy(
                             fontWeight = FontWeight.Bold,
-                            color = MaterialTheme.colorScheme.onBackground,
-                            textAlign = TextAlign.Center
+                            color = MaterialTheme.colorScheme.onBackground
                         ),
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis
@@ -355,28 +352,31 @@ fun FullPlayerSheetContent(
                     Spacer(modifier = Modifier.height(4.dp))
                     Text(
                         text = song.artistName,
-                        style = MaterialTheme.typography.titleMedium.copy(
+                        style = MaterialTheme.typography.bodyMedium.copy(
                             color = MaterialTheme.colorScheme.primary,
-                            fontWeight = FontWeight.Bold,
-                            textAlign = TextAlign.Center
+                            fontWeight = FontWeight.Bold
                         ),
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis
                     )
                 }
 
-                // Decorative Share Icon in a pixel box
+                Spacer(modifier = Modifier.width(16.dp))
+
+                // Retro Square Favorite Button (moderate size)
                 IconButton(
-                    onClick = { /* Omitted unrequested feature */ },
+                    onClick = onFavoriteToggle,
                     modifier = Modifier
-                        .size(44.dp)
-                        .border(2.dp, MaterialTheme.colorScheme.onBackground, RoundedCornerShape(4.dp))
+                        .size(38.dp)
+                        .border(1.5.dp, MaterialTheme.colorScheme.onBackground, RoundedCornerShape(4.dp))
                         .background(MaterialTheme.colorScheme.surface, RoundedCornerShape(4.dp))
+                        .testTag("full_player_favorite")
                 ) {
                     Icon(
-                        imageVector = Icons.Rounded.Share,
-                        contentDescription = "Share info",
-                        tint = MaterialTheme.colorScheme.onSurface
+                        imageVector = if (isFavorite) Icons.Filled.Favorite else Icons.Outlined.FavoriteBorder,
+                        contentDescription = "Favorite",
+                        tint = if (isFavorite) Color(0xFFFF4D4D) else MaterialTheme.colorScheme.onSurface,
+                        modifier = Modifier.size(20.dp)
                     )
                 }
             }

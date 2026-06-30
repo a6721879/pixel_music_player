@@ -60,6 +60,7 @@ class MusicViewModel(application: Application) : AndroidViewModel(application) {
     val playerError: StateFlow<String?> = MusicPlayerController.error
 
     init {
+        MusicPlayerController.appContext = application.applicationContext
         loadHomeData()
     }
 

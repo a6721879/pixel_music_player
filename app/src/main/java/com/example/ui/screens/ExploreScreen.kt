@@ -60,7 +60,7 @@ fun ExploreScreen(
                     modifier = Modifier.weight(1f)
                 ) {
                     Text(
-                        text = "★ 像素音乐盒 ★",
+                        text = "像素音乐盒",
                         style = MaterialTheme.typography.headlineLarge.copy(
                             fontWeight = FontWeight.Bold,
                             letterSpacing = 1.5.sp,

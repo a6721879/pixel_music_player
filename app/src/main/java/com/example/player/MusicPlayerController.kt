@@ -15,6 +15,9 @@ object MusicPlayerController {
     private val coroutineScope = CoroutineScope(Dispatchers.Main + SupervisorJob())
     private var progressJob: Job? = null
 
+    // Application context for MediaPlayer headers
+    var appContext: android.content.Context? = null
+
     // Playlist state
     private var currentPlaylist = listOf<Song>()
     private var currentIndex = -1
@@ -81,7 +84,17 @@ object MusicPlayerController {
                         .setUsage(AudioAttributes.USAGE_MEDIA)
                         .build()
                 )
-                setDataSource(url)
+                val headers = mapOf(
+                    "User-Agent" to "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+                    "Referer" to "https://tonzhon.whamon.com/",
+                    "Origin" to "https://tonzhon.whamon.com"
+                )
+                val context = appContext
+                if (context != null) {
+                    setDataSource(context, android.net.Uri.parse(url), headers)
+                } else {
+                    setDataSource(url)
+                }
                 setOnPreparedListener { mp ->
                     _isLoading.value = false
                     _isPlaying.value = true

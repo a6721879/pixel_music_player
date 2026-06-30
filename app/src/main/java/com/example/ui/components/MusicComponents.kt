@@ -33,6 +33,73 @@ import coil.request.ImageRequest
 import com.example.data.model.ArtistInfo
 import com.example.data.model.Song
 
+import androidx.compose.ui.graphics.graphicsLayer
+
+@Composable
+fun PixelEqualizer(
+    isPlaying: Boolean,
+    modifier: Modifier = Modifier
+) {
+    Row(
+        modifier = modifier
+            .background(Color.Black.copy(alpha = 0.6f), RoundedCornerShape(2.dp))
+            .padding(horizontal = 4.dp, vertical = 3.dp),
+        horizontalArrangement = Arrangement.spacedBy(2.dp),
+        verticalAlignment = Alignment.Bottom
+    ) {
+        val infiniteTransition = rememberInfiniteTransition(label = "Equalizer")
+        
+        val bar1Height by infiniteTransition.animateFloat(
+            initialValue = 4f,
+            targetValue = 16f,
+            animationSpec = infiniteRepeatable(
+                animation = tween(400, easing = FastOutLinearInEasing),
+                repeatMode = RepeatMode.Reverse
+            ),
+            label = "Bar1"
+        )
+        val bar2Height by infiniteTransition.animateFloat(
+            initialValue = 6f,
+            targetValue = 18f,
+            animationSpec = infiniteRepeatable(
+                animation = tween(300, easing = LinearOutSlowInEasing),
+                repeatMode = RepeatMode.Reverse
+            ),
+            label = "Bar2"
+        )
+        val bar3Height by infiniteTransition.animateFloat(
+            initialValue = 3f,
+            targetValue = 14f,
+            animationSpec = infiniteRepeatable(
+                animation = tween(500, easing = FastOutSlowInEasing),
+                repeatMode = RepeatMode.Reverse
+            ),
+            label = "Bar3"
+        )
+
+        val activeColor = MaterialTheme.colorScheme.primary
+
+        Box(
+            modifier = Modifier
+                .width(2.dp)
+                .height(if (isPlaying) bar1Height.dp else 4.dp)
+                .background(activeColor)
+        )
+        Box(
+            modifier = Modifier
+                .width(2.dp)
+                .height(if (isPlaying) bar2Height.dp else 6.dp)
+                .background(activeColor)
+        )
+        Box(
+            modifier = Modifier
+                .width(2.dp)
+                .height(if (isPlaying) bar3Height.dp else 3.dp)
+                .background(activeColor)
+        )
+    }
+}
+
 @Composable
 fun SongRowItem(
     song: Song,
@@ -43,16 +110,16 @@ fun SongRowItem(
     onFavoriteToggle: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    // Rotating cover art animation if it's the current playing song
-    val infiniteTransition = rememberInfiniteTransition(label = "Rotation")
-    val rotationAngle by infiniteTransition.animateFloat(
-        initialValue = 0f,
-        targetValue = 360f,
+    // Pulsing/Breathing scale animation instead of rotation if playing
+    val pulseTransition = rememberInfiniteTransition(label = "Pulse")
+    val pulseScale by pulseTransition.animateFloat(
+        initialValue = 0.95f,
+        targetValue = 1.05f,
         animationSpec = infiniteRepeatable(
-            animation = tween(15000, easing = LinearEasing),
-            repeatMode = RepeatMode.Restart
+            animation = tween(1200, easing = FastOutSlowInEasing),
+            repeatMode = RepeatMode.Reverse
         ),
-        label = "RotationAngle"
+        label = "PulseScale"
     )
 
     Box(
@@ -111,7 +178,12 @@ fun SongRowItem(
                             contentDescription = "Cover for ${song.name}",
                             modifier = Modifier
                                 .fillMaxSize()
-                                .rotate(if (isCurrent && isPlaying) rotationAngle else 0f),
+                                .graphicsLayer {
+                                    if (isCurrent && isPlaying) {
+                                        scaleX = pulseScale
+                                        scaleY = pulseScale
+                                    }
+                                },
                             contentScale = ContentScale.Crop
                         )
                     } else {
@@ -119,7 +191,24 @@ fun SongRowItem(
                             imageVector = Icons.Rounded.MusicNote,
                             contentDescription = "No cover",
                             tint = MaterialTheme.colorScheme.primary,
-                            modifier = Modifier.size(24.dp)
+                            modifier = Modifier
+                                .size(24.dp)
+                                .graphicsLayer {
+                                    if (isCurrent && isPlaying) {
+                                        scaleX = pulseScale
+                                        scaleY = pulseScale
+                                    }
+                                }
+                        )
+                    }
+
+                    // Overlay pixel equalizer if currently selected/playing
+                    if (isCurrent) {
+                        PixelEqualizer(
+                            isPlaying = isPlaying,
+                            modifier = Modifier
+                                .align(Alignment.BottomEnd)
+                                .padding(2.dp)
                         )
                     }
                 }
